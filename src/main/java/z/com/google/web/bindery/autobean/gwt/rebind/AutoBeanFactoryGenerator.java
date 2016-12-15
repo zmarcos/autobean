@@ -463,8 +463,8 @@ public class AutoBeanFactoryGenerator extends Generator {
     JMethod interceptor = type.getInterceptor();
     if (interceptor != null) {
       // toReturn = FooCategory.__intercept(FooAutoBean.this, toReturn);
-      sw.println("toReturn = %s.%s(%s.this, toReturn);", interceptor.getEnclosingType()
-          .getQualifiedSourceName(), interceptor.getName(), type.getSimpleSourceName());
+      sw.println("toReturn = %s.%s(%s.this, toReturn, \"%s\");", interceptor.getEnclosingType()
+          .getQualifiedSourceName(), interceptor.getName(), type.getSimpleSourceName(), method.getPropertyName());
     }
   }
 
